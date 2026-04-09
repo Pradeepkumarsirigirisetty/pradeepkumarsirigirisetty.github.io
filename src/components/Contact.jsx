@@ -1,15 +1,7 @@
-import { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-
-  const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
+  const [state, handleSubmit] = useForm('mjgpdwel');
 
   return (
     <section id="contact" style={{
@@ -59,30 +51,29 @@ export default function Contact() {
             <h3 style={{ fontWeight: 600, color: '#f8fafc', fontSize: '0.875rem', marginBottom: '1rem' }}>
               Contact form
             </h3>
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              <div>
-                <label className="form-label" htmlFor="name">Name</label>
-                <input id="name" name="name" type="text" className="form-input"
-                  placeholder="Your name" value={form.name} onChange={handleChange} />
-              </div>
-              <div>
-                <label className="form-label" htmlFor="email">Email</label>
-                <input id="email" name="email" type="email" className="form-input"
-                  placeholder="you@example.com" value={form.email} onChange={handleChange} />
-              </div>
-              <div>
-                <label className="form-label" htmlFor="message">Message</label>
-                <textarea id="message" name="message" rows={3} className="form-input"
-                  placeholder="Tell me about the project or role..."
-                  value={form.message} onChange={handleChange} />
-              </div>
-              <button type="submit" className="form-button">Send message</button>
-              {submitted && (
-                <p style={{ fontSize: '0.75rem', color: '#6ee7b7', margin: 0 }}>
-                  This is a front‑end demo. Connect it to EmailJS or Formspree to receive messages.
-                </p>
-              )}
-            </form>
+            {state.succeeded ? (
+              <p style={{ color: '#6ee7b7' }}>✅ Message sent! I'll get back to you within 24–48 hours.</p>
+            ) : (
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                <div>
+                  <label className="form-label" htmlFor="name">Name</label>
+                  <input id="name" name="name" type="text" className="form-input" placeholder="Your name" required />
+                </div>
+                <div>
+                  <label className="form-label" htmlFor="email">Email</label>
+                  <input id="email" name="email" type="email" className="form-input" placeholder="you@example.com" required />
+                  <ValidationError field="email" prefix="Email" errors={state.errors} style={{ fontSize: '0.75rem', color: '#f87171' }} />
+                </div>
+                <div>
+                  <label className="form-label" htmlFor="message">Message</label>
+                  <textarea id="message" name="message" rows={3} className="form-input" placeholder="Tell me about the project or role..." required />
+                  <ValidationError field="message" prefix="Message" errors={state.errors} style={{ fontSize: '0.75rem', color: '#f87171' }} />
+                </div>
+                <button type="submit" className="form-button" disabled={state.submitting}>
+                  {state.submitting ? 'Sending...' : 'Send message'}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>
