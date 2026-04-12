@@ -85,8 +85,7 @@ export default function Contact() {
       <div style={{ maxWidth: '60rem', margin: '0 auto' }}>
         <h2 className="section-title" style={{ marginBottom: '1rem' }}>Contact</h2>
         <p style={{ fontSize: '0.95rem', color: '#cbd5e1', maxWidth: '36rem', marginBottom: '2rem', lineHeight: 1.7 }}>
-          I'm open to internships, freelance work or collaborations in AI, data
-          engineering and full‑stack web development. The fastest way to reach me is email.
+          I'm open to internships, freelance work or collaborations in AI and full‑stack web development. The fastest way to reach me is email.
         </p>
 
         <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>

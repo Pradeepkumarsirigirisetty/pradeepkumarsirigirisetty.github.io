@@ -5,7 +5,7 @@ const projects = [
     summary:
       'An offline multilingual voice assistant engineered to transcribe speech, detect language, and deliver AI-generated responses across multiple Indian languages through a structured and accessible interface.',
     tech: ['Python', 'Gradio', 'Speech AI', 'NLP', 'Multilingual'],
-    image: '/images/polylingua-ai.jpg',
+    image: './images/Polylingua_ai_image.png',
     github: 'https://github.com/Pradeepkumarsirigirisetty',
     demo: '#',
     details: '/projects/polylingua-ai',
@@ -16,7 +16,7 @@ const projects = [
     summary:
       'A responsive developer portfolio designed to showcase my projects, technical growth, and design sensibility through a refined dark-themed interface with clear hierarchy and polished presentation.',
     tech: ['React', 'JavaScript', 'CSS', 'Responsive UI', 'GitHub'],
-    image: '/images/portfolio-website.jpg',
+    image: './images/My_portfolio_image.png',
     github: 'https://github.com/Pradeepkumarsirigirisetty',
     demo: '#',
     details: '/projects/portfolio-website',
@@ -27,7 +27,7 @@ const projects = [
     summary:
       'A finance-oriented web platform conceptualised to make investing and market exploration more approachable through onboarding flows, trading-focused layouts, and educational interface sections.',
     tech: ['HTML', 'CSS', 'JavaScript', 'Finance UI', 'Auth Flow'],
-    image: '/images/uptrend.jpg',
+    image: './images/uptrend_image.png',
     github: 'https://github.com/Pradeepkumarsirigirisetty',
     demo: 'https://uptrend.niat.tech',
     details: '/projects/uptrend',
