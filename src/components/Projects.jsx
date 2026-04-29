@@ -16,10 +16,10 @@ const projects = [
     summary:
       'A responsive developer portfolio designed to showcase my projects, technical growth, and design sensibility through a refined dark-themed interface with clear hierarchy and polished presentation.',
     tech: ['React', 'JavaScript', 'CSS', 'Responsive UI', 'GitHub'],
-    image: './images/My_portfolio_image.png',
+    image: './images/Vinay_portfolio_image.png',
     github: 'https://github.com/Pradeepkumarsirigirisetty',
-    demo: '#',
-    details: '/projects/portfolio-website',
+    demo: 'https://durgavinaykumar6666.github.io',
+    details: '/projects/vinay_kumar_portfolio_website',
   },
   {
     id: 'uptrend',
@@ -32,8 +32,8 @@ const projects = [
     demo: 'https://uptrend.niat.tech',
     details: '/projects/uptrend',
   },
-];
 
+];
 function ProjectItem({ project, isLast }) {
   return (
     <article>
@@ -86,7 +86,7 @@ function ProjectItem({ project, isLast }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Live Demo ↗
+             {project.demo === '#' ? "" : "Live Demo ↗"}
             </a>
           </div>
         </div>
@@ -122,6 +122,16 @@ export default function Projects() {
           ))}
         </div>
       </div>
+      <button style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1rem' }}
+        className="btn-primary">
+        <a
+          href="/all_projects"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View All Projects →
+        </a>
+      </button>
     </section>
   );
 }
