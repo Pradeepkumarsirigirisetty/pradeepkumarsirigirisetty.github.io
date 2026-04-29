@@ -1,4 +1,4 @@
-// src/components/Projects.jsx
+// src/components/ViewAllProjects.jsx
 import { Link } from 'react-router-dom';
 import projectsData from '../data/projectsData';
 
@@ -56,45 +56,29 @@ function ProjectItem({ project, isLast }) {
   );
 }
 
-export default function Projects() {
-  const selectedProjects = projectsData.filter(
-  (project) => project.showOnHome === true
-);
+export default function ViewAllProjects() {
   return (
     <section id="projects" className="projects-section">
       <div className="projects-wrap">
         <div className="projects-header">
           <div>
-            <span className="section-title">Selected Work</span>
+            <span className="section-title">All Work</span>
             <h2 className="projects-heading">Projects</h2>
             <p className="projects-subtext">
-              A curated selection of projects that reflect my interest in AI,
-              web development, interface design, and practical digital products.
+              A broader collection of projects covering AI, business websites,
+              portfolios, and interface-focused digital products.
             </p>
           </div>
         </div>
 
         <div className="projects-list">
-          {selectedProjects.map((project, index) => (
+          {projectsData.map((project, index) => (
             <ProjectItem
               key={project.id}
               project={project}
-              isLast={index === selectedProjects.length - 1}
+              isLast={index === projectsData.length - 1}
             />
           ))}
-        </div>
-
-        <div style={{ marginTop: '2rem' }}>
-          <Link
-            to="/all-projects"
-            className="btn-primary"
-            style={{
-              display: 'inline-flex',
-              textDecoration: 'none',
-            }}
-          >
-            View All Projects →
-          </Link>
         </div>
       </div>
     </section>

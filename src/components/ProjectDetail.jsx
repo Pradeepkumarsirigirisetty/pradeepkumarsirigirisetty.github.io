@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-
+// src/components/ProjectDetail.jsx
 export default function ProjectDetail({
   title,
   subtitle,
@@ -18,7 +17,6 @@ export default function ProjectDetail({
       }}
     >
       <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
-
         <h1 style={{ fontSize: '2.3rem', marginBottom: '0.75rem' }}>{title}</h1>
 
         <p
@@ -74,24 +72,26 @@ export default function ProjectDetail({
           </div>
         </section>
 
-        <section style={{ marginTop: '2.5rem' }}>
-          <a
-            href={githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'inline-block',
-              background: '#34d399',
-              color: '#052e16',
-              padding: '0.9rem 1.2rem',
-              borderRadius: '999px',
-              fontWeight: 700,
-              textDecoration: 'none'
-            }}
-          >
-            View GitHub Repository
-          </a>
-        </section>
+        {githubLink && (
+          <section style={{ marginTop: '2.5rem' }}>
+            <a
+              href={githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-block',
+                background: '#34d399',
+                color: '#052e16',
+                padding: '0.9rem 1.2rem',
+                borderRadius: '999px',
+                fontWeight: 700,
+                textDecoration: 'none'
+              }}
+            >
+              View GitHub Repository
+            </a>
+          </section>
+        )}
       </div>
     </main>
   );
